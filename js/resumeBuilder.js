@@ -28,7 +28,7 @@ var bio = {
         $("#header").prepend(formattedName, formattedRole, formattedMessage, formattedBiopic);
 
 
-        $("#topContacts", "#footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+        $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 
         $("#header").append(HTMLskillsStart);
         if (bio.skills.length > 0) {
