@@ -68,7 +68,7 @@ var education = {
         "name": "Hebei University of Technology",
         "location": "Hebei University Of Technology, Tianjin,China",
         "degree": "BA",
-        "major": ["Chemistry"],
+        "majors": ["Chemistry"],
         "dates": "2014-2018",
         "url": "http://www.hebut.edu.cn/"
     }],
@@ -101,7 +101,7 @@ var education = {
             var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace("#", school.url);
             var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
             var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
-            var formattedMajor = HTMLschoolMajor.replace("%data%", school.major);
+            var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
             var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
             $(".education-entry:last").append(formattedSchoolName + formattedDegree, formattedDates, formattedSchoolLocation,  formattedMajor);
         });
@@ -210,10 +210,14 @@ var projects = {
             var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
             $(".project-entry:last").append(formattedTitle, formattedDates, formattedDescription);
             if (project.images.length > 0) {
-                for (var image in project.images) {
-                    var formattedImage = HTMLprojectImage.replace("%data%", project.images[image]);
-                    $(".project-entry:last").append(formattedImage);
-                }
+                // for (var image in project.images) {
+                //     var formattedImage = HTMLprojectImage.replace("%data%", project.images[image]);
+                //     $(".project-entry:last").append(formattedImage);
+                // }
+                project.images.forEach(function(image) {
+                  var formattedImage = HTMLprojectImage.replace("%data%", image);
+                  $(".project-entry:last").append(formattedImage);
+                });
             }
         });
     }
